@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsx ./src/index.ts"
   },
   "type": "module",
-  "scripts": {
-      "start": "tsx ./src/index.ts"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bhamrickatmills/gator.git"
@@ -23,7 +20,12 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^25.0.3",
+    "drizzle-kit": "^0.31.11",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.4",
+    "postgres": "^3.4.9"
   }
 }
