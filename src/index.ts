@@ -1,10 +1,10 @@
-import { CommandsRegistry, registerCommand, handlerLogin } from "./Commands.js"
+import { CommandsRegistry, registerCommand, handlerLogin, runCommand } from "./Commands.js"
 import { setUser, readConfig } from "./config.js"
 import process from 'process';
 
 const commands: CommandsRegistry = {}
 
-function main() {
+async function main() {
     registerCommand(commands, "login", handlerLogin)
     if (process.argv[2] == "login" && process.argv.length < 4) {
         console.log("User name required")
@@ -15,7 +15,7 @@ function main() {
         process.exit(1);
     }
 
-    setUser(process.argv[3])
+    await runCommand(commands, process.argv[2], process.argv[3])
     process.exit(0);
 }
 
